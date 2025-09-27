@@ -24,18 +24,28 @@ reference.style.alignItems = "center";
 document.body.appendChild(reference);
 document.body.appendChild(canvas);
 
-const borderRadius = "24% 76% 0% 100% / 31% 91% 9% 69% ";
+const borderRadius = "100% 0% 100% 0% / 0% 100% 0% 100% ";
 
 const rectWidth = 200;
 const rectHeight = 200;
 
 const div = document.createElement("div");
-
+const label = document.createElement("span");
 div.style.width = rectWidth + "px";
 div.style.height = rectHeight + "px";
 div.style.borderRadius = borderRadius;
 div.style.backgroundColor = "red";
 
+reference.style.position = "relative";
+
+label.innerText = "DOM";
+label.style.fontSize = "30px";
+label.style.fontFamily = "sans-serif";
+label.style.position = "absolute";
+label.style.left = "0";
+label.style.top = "0";
+
+reference.appendChild(label);
 reference.appendChild(div);
 
 roundRect(
@@ -48,3 +58,7 @@ roundRect(
 );
 ctx.fillStyle = "red";
 ctx.fill();
+
+ctx.fillStyle = "black";
+ctx.font = "30px sans-serif";
+ctx.fillText("Canvas", 2, 28);
